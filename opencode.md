@@ -1,5 +1,10 @@
 # UTrend 企業官網 — 專案開發規範
 
+## 🤖 AI 互動與回覆規範
+
+- **指定語言**：請一律使用**繁體中文（台灣，zh-TW）**與使用者對話並回覆所有問題。
+- **專有名詞**：請遵循台灣習慣的資訊工程術語（例如：使用「專案」而非「項目」、「資料案/檔案」而非「文件」、「重構」而非「重構」、「程式碼」而非「代碼」）。
+
 ## 技術堆疊
 
 - 靜態 HTML5 + Tailwind CSS v3（CDN 引入）+ Vue 3（CDN 引入）+ 原生 JavaScript
@@ -31,9 +36,10 @@
 - 色系變數透過 `<script id="tailwind-config">` 內嵌定義
 
 ## API 端點約定（RESTful）
-| 方法 | 端點 | 頁面 | 說明 |
-|------|------|------|------|
-| GET | `/api/home` | index.html | 回傳 `{ stats, clients }` 供首頁動態渲染 |
+
+| 方法 | 端點           | 頁面         | 說明                                                                |
+| ---- | -------------- | ------------ | ------------------------------------------------------------------- |
+| GET  | `/api/home`    | index.html   | 回傳 `{ stats, clients }` 供首頁動態渲染                            |
 | POST | `/api/contact` | contact.html | 接收表單 `{ name, email, company, phone, service, message, agree }` |
 
 API 基底網址可透過 `window.API_BASE_URL` 覆蓋。API 不可用時，頁面會以降級資料（fallback data）正常顯示。

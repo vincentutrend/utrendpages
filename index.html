@@ -15,26 +15,10 @@
     <title>樂呈科技 UTrend Tech Co.| 專業 IT 顧問與數位轉型夥伴 - 首頁</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link rel="icon" href="favicon/favicon.ico" type="image/x-icon" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL95MJHYGS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XL95MJHYGS');
-</script>
-
-  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-  <script src="js/api.js"></script>
-  <style>
-    [v-cloak] { display: none; }
-  </style>
-  <script id="tailwind-config"
+  <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
       theme: {
@@ -366,7 +350,7 @@ z"/>
 </div>
 </header>
 
-<main id="app" class="flex flex-1 justify-center py-5" v-cloak>
+<main class="flex flex-1 justify-center py-5">
 <div class="layout-content-container flex flex-col w-full max-w-7xl gap-16 md:gap-24 px-4 sm:px-10">
 
 <!-- HeroSection -->
@@ -397,12 +381,26 @@ z"/>
 <!-- Stats -->
 <section class="w-full">
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-<div v-for="stat in stats" :key="stat.label" class="flex flex-1 flex-col gap-2 rounded-lg p-6 border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark/50">
+<div class="flex flex-1 flex-col gap-2 rounded-lg p-6 border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark/50">
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary text-2xl">{{ stat.icon }}</span>
-<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">{{ stat.label }}</p>
+<span class="material-symbols-outlined text-primary text-2xl">stack</span>
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">專案導入經驗</p>
 </div>
-<p class="text-primary text-4xl font-bold leading-tight tracking-tight">{{ stat.value }}</p>
+<p class="text-primary text-4xl font-bold leading-tight tracking-tight">30+</p>
+</div>
+<div class="flex flex-1 flex-col gap-2 rounded-lg p-6 border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">tune</span>
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">客製顧問服務</p>
+</div>
+<p class="text-primary text-4xl font-bold leading-tight tracking-tight">ERP/CRM/AI</p>
+</div>
+<div class="flex flex-1 flex-col gap-2 rounded-lg p-6 border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">insights</span>
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">獨特產業優勢</p>
+</div>
+<p class="text-primary text-4xl font-bold leading-tight tracking-tight">最懂產業流程</p>
 </div>
 </div>
 </section>
@@ -412,14 +410,44 @@ z"/>
 <h4 class="text-subtext-light dark:text-subtext-dark text-sm font-bold leading-normal tracking-[0.015em] px-4 py-2 text-center">深受業界領導品牌信賴</h4>
 <div class="relative w-full overflow-hidden">
 <div class="flex animate-infinite-scroll group-hover:pause">
-<div v-for="client in clients" :key="client.name" class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
-<img class="max-h-10 w-auto" :alt="client.name" :src="client.src"/>
+<div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Google Logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"/>
 </div>
+<div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Amazon Logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"/>
+</div>
+<div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Microsoft Logo" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"/>
+</div>
+<!-- <div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Salesforce Logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"/>
+</div> -->
+<div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Oracle Logo" src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"/>
+</div>
+<!-- <div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Shopify Logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg"/>
+</div> -->
 </div>
 <div aria-hidden="true" class="absolute top-0 flex animate-infinite-scroll-2 group-hover:pause">
-<div v-for="client in clients" :key="'dup-'+client.name" class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
-<img class="max-h-10 w-auto" :alt="client.name" :src="client.src"/>
+<div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Google Logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"/>
 </div>
+<div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Amazon Logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"/>
+</div>
+<div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Microsoft Logo" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"/>
+</div>
+<!-- <div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Salesforce Logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"/>
+</div> -->
+<div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Oracle Logo" src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"/>
+</div>
+<!-- <div class="flex shrink-0 items-center justify-center mx-4 h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+<img class="max-h-10 w-auto" alt="Shopify Logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg"/>
+</div> -->
 </div>
 </div>
 </section>
@@ -467,40 +495,5 @@ z"/>
 
 </div>
 </div>
-<script>
-const { createApp, ref, onMounted } = Vue
-
-const defaultStats = [
-  { icon: 'stack', label: '專案導入經驗', value: '30+' },
-  { icon: 'tune', label: '客製顧問服務', value: 'ERP/CRM/AI' },
-  { icon: 'insights', label: '獨特產業優勢', value: '最懂產業流程' },
-]
-
-const defaultClients = [
-  { name: 'Google Logo', src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
-  { name: 'Amazon Logo', src: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
-  { name: 'Microsoft Logo', src: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg' },
-  { name: 'Oracle Logo', src: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg' },
-]
-
-createApp({
-  setup() {
-    const stats = ref(defaultStats)
-    const clients = ref(defaultClients)
-
-    onMounted(async () => {
-      try {
-        const data = await apiGet('/home')
-        if (data.stats) stats.value = data.stats
-        if (data.clients) clients.value = data.clients
-      } catch (e) {
-        console.log('API unavailable, using default data')
-      }
-    })
-
-    return { stats, clients }
-  }
-}).mount('#app')
-</script>
 </body>
 </html>
