@@ -28,7 +28,12 @@
 
   gtag('config', 'G-XL95MJHYGS');
 </script>
-  <script id="tailwind-config">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="js/api.js"></script>
+  <style>
+    [v-cloak] { display: none; }
+  </style>
+  <script id="tailwind-config"
     tailwind.config = {
       darkMode: "class",
       theme: {
@@ -345,7 +350,7 @@ z"/>
 </div>
 </header>
 
-<main class="flex flex-1 justify-center py-5">
+<main id="app" class="flex flex-1 justify-center py-5" v-cloak>
 <div class="layout-content-container flex flex-col w-full max-w-7xl gap-16 md:gap-24 px-4 sm:px-10">
 
 <!-- Page Header -->
@@ -365,32 +370,32 @@ z"/>
 
 <!-- Contact Form -->
 <div class="md:col-span-2">
-<form class="flex flex-col gap-6 bg-white dark:bg-background-dark/50 rounded-xl p-8 border border-gray-300/70 dark:border-gray-700/70">
+<form @submit.prevent="submitForm" class="flex flex-col gap-6 bg-white dark:bg-background-dark/50 rounded-xl p-8 border border-gray-300/70 dark:border-gray-700/70">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <label class="block text-text-light dark:text-text-dark text-sm font-semibold mb-2">姓名 *</label>
-<input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="您的姓名"/>
+<input v-model="form.name" type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="您的姓名"/>
 </div>
 <div>
 <label class="block text-text-light dark:text-text-dark text-sm font-semibold mb-2">電子郵件 *</label>
-<input type="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="您的電子郵件"/>
+<input v-model="form.email" type="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="您的電子郵件"/>
 </div>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <label class="block text-text-light dark:text-text-dark text-sm font-semibold mb-2">公司名稱</label>
-<input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="您的公司名稱"/>
+<input v-model="form.company" type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="您的公司名稱"/>
 </div>
 <div>
 <label class="block text-text-light dark:text-text-dark text-sm font-semibold mb-2">電話號碼</label>
-<input type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="您的電話號碼"/>
+<input v-model="form.phone" type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="您的電話號碼"/>
 </div>
 </div>
 
 <div>
 <label class="block text-text-light dark:text-text-dark text-sm font-semibold mb-2">感興趣的服務 *</label>
-<select required class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark focus:outline-none focus:border-primary transition-colors">
+<select v-model="form.service" required class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark focus:outline-none focus:border-primary transition-colors">
 <option value="">請選擇服務</option>
 <option value="erp">ERP 顧問服務</option>
 <option value="crm">CRM 顧問服務</option>
@@ -404,19 +409,26 @@ z"/>
 
 <div>
 <label class="block text-text-light dark:text-text-dark text-sm font-semibold mb-2">您的訊息 *</label>
-<textarea required rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="請告訴我們您的需求和問題"></textarea>
+<textarea v-model="form.message" required rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300/70 dark:border-gray-700/70 bg-white dark:bg-background-dark text-text-light dark:text-text-dark placeholder:text-subtext-light dark:placeholder:text-subtext-dark focus:outline-none focus:border-primary transition-colors" placeholder="請告訴我們您的需求和問題"></textarea>
 </div>
 
 <div class="flex items-center gap-2">
-<input type="checkbox" required id="agree" class="w-4 h-4 rounded border border-gray-300/70 dark:border-gray-700/70 accent-primary"/>
+<input v-model="form.agree" type="checkbox" id="agree" class="w-4 h-4 rounded border border-gray-300/70 dark:border-gray-700/70 accent-primary"/>
 <label for="agree" class="text-subtext-light dark:text-subtext-dark text-sm">
 我同意隱私政策，並同意被聯繫
 </label>
 </div>
 
-<button type="submit" class="px-6 py-3 bg-accent hover:bg-accent/90 text-white font-bold rounded-lg transition-colors">
-發送訊息
+<button type="submit" :disabled="submitting" class="px-6 py-3 bg-accent hover:bg-accent/90 disabled:opacity-50 text-white font-bold rounded-lg transition-colors">
+{{ submitting ? '傳送中...' : '發送訊息' }}
 </button>
+
+<div v-if="submitSuccess" class="p-4 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-lg">
+感謝您的訊息！我們會盡快與您聯繫。
+</div>
+<div v-if="submitError" class="p-4 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 rounded-lg">
+{{ submitError }}
+</div>
 </form>
 </div>
 
@@ -528,5 +540,54 @@ salesteam@getutrend.com
 
 </div>
 </div>
+<script>
+const { createApp, ref, reactive } = Vue
+
+createApp({
+  setup() {
+    const form = reactive({
+      name: '',
+      email: '',
+      company: '',
+      phone: '',
+      service: '',
+      message: '',
+      agree: false,
+    })
+    const submitting = ref(false)
+    const submitSuccess = ref(false)
+    const submitError = ref('')
+
+    async function submitForm() {
+      submitSuccess.value = false
+      submitError.value = ''
+
+      if (!form.name || !form.email || !form.service || !form.message || !form.agree) {
+        submitError.value = '請填寫所有必填欄位並同意隱私政策'
+        return
+      }
+
+      submitting.value = true
+      try {
+        await apiPost('/contact', { ...form })
+        submitSuccess.value = true
+        form.name = ''
+        form.email = ''
+        form.company = ''
+        form.phone = ''
+        form.service = ''
+        form.message = ''
+        form.agree = false
+      } catch (e) {
+        submitError.value = '傳送失敗，請稍後再試或直接來信 salesteam@getutrend.com'
+      } finally {
+        submitting.value = false
+      }
+    }
+
+    return { form, submitting, submitSuccess, submitError, submitForm }
+  }
+}).mount('#app')
+</script>
 </body>
 </html>
