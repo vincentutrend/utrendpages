@@ -1,0 +1,5 @@
+# robots.txt — 樂呈科技 UTrend Tech (https://getutrend.com)
+User-agent: *
+Allow: /
+
+Sitemap: https://getutrend.com/sitemap.xml
