@@ -1,1 +1,0 @@
-const s="https://api.getutrend.com/api";async function a(n){const t=await fetch(`${s}${n}`);if(!t.ok)throw new Error(`HTTP ${t.status}`);return t.json()}async function r(n,t){const o=await fetch(`${s}${n}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)});if(!o.ok)throw new Error(`HTTP ${o.status}`);return o.json()}export{a,r as b};
