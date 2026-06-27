@@ -1,4 +1,4 @@
-import"./shared-BTGS2fmD.js";const qf="https://api.getutrend.com/api";async function Gf(e,t){const s=await fetch(`${qf}${e}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)});if(!s.ok)throw new Error(`HTTP ${s.status}`);return s.json()}/**
+import"./shared-Bn1rQewm.js";const qf="https://api.getutrend.com/api";async function Gf(e,t){const s=await fetch(`${qf}${e}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)});if(!s.ok)throw new Error(`HTTP ${s.status}`);return s.json()}/**
 * @vue/shared v3.5.38
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
