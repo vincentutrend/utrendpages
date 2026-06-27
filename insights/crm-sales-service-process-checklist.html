@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="CRM 導入不只是買系統，而是把銷售與客服的人為習慣，整理成可追蹤、可管理、可優化的標準流程。本文從 DDD、UBPL、UDM 與狀態機角度，協助企業導入前先做好盤點。" />
+<meta name="keywords" content="IT諮詢,數位轉型,ERP,AI,系統整合,樂呈科技,UTrend" />
+<meta name="author" content="UTrend Tech Co., Ltd." />
+<meta name="theme-color" content="#070B16" />
+
+<link rel="canonical" href="https://getutrend.com/insights/crm-sales-service-process-checklist.html" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="CRM 系統導入前，銷售與客服流程怎麼整理？｜樂呈科技 UTrend Tech" />
+<meta property="og:description" content="CRM 導入不只是買系統，而是把銷售與客服的人為習慣，整理成可追蹤、可管理、可優化的標準流程。本文從 DDD、UBPL、UDM 與狀態機角度，協助企業導入前先做好盤點。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://getutrend.com/insights/crm-sales-service-process-checklist.html" />
+<meta property="og:image" content="https://getutrend.com/og-cover.png" />
+<meta property="og:image:secure_url" content="https://getutrend.com/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="樂呈科技 UTrend Tech — 從流程到系統，讓數位轉型真正落地" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:site_name" content="樂呈科技 UTrend Tech" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CRM 系統導入前，銷售與客服流程怎麼整理？｜樂呈科技 UTrend Tech" />
+<meta name="twitter:description" content="CRM 導入不只是買系統，而是把銷售與客服的人為習慣，整理成可追蹤、可管理、可優化的標準流程。本文從 DDD、UBPL、UDM 與狀態機角度，協助企業導入前先做好盤點。" />
+<meta name="twitter:image" content="https://getutrend.com/og-cover.png" />
+<meta name="twitter:image:alt" content="樂呈科技 UTrend Tech — 從流程到系統，讓數位轉型真正落地" />
+
+<title>CRM 系統導入前，銷售與客服流程怎麼整理？｜樂呈科技 UTrend Tech</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link crossorigin href="https://images.unsplash.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block" rel="stylesheet" />
+
+<!-- Structured Data：Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "樂呈科技 UTrend Tech Co., Ltd.",
+  "url": "https://getutrend.com/",
+  "logo": "https://getutrend.com/favicon/web-app-manifest-512x512.png",
+  "image": "https://getutrend.com/og-cover.png",
+  "description": "最懂產業流程的 IT 顧問團隊，提供 ERP／CRM 導入、AI 解決方案與客製化系統開發。",
+  "email": "salesteam@getutrend.com",
+  "telephone": "+886-911-653-320",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "敦化北路207號8樓之13",
+    "addressLocality": "松山區",
+    "addressRegion": "臺北市",
+    "postalCode": "105",
+    "addressCountry": "TW"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+886-911-653-320",
+    "email": "salesteam@getutrend.com",
+    "contactType": "sales",
+    "areaServed": "TW",
+    "availableLanguage": ["zh-Hant"]
+  },
+  "areaServed": "TW",
+  "knowsAbout": ["ERP 導入", "CRM 系統", "AI 解決方案", "數位轉型", "系統整合", "客製化軟體開發"]
+}
+</script>
+<!-- Structured Data：WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "樂呈科技 UTrend Tech",
+  "url": "https://getutrend.com/",
+  "inLanguage": "zh-Hant",
+  "publisher": { "@type": "Organization", "name": "樂呈科技 UTrend Tech Co., Ltd." }
+}
+</script>
+<!-- Structured Data：文章（BlogPosting） -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"CRM 系統導入前，銷售與客服流程怎麼整理？","description":"CRM 導入不只是買系統，而是把銷售與客服的人為習慣，整理成可追蹤、可管理、可優化的標準流程。本文從 DDD、UBPL、UDM 與狀態機角度，協助企業導入前先做好盤點。","image":"https://getutrend.com/og-cover.png","author":{"@type":"Organization","name":"樂呈科技顧問團隊"},"publisher":{"@type":"Organization","name":"樂呈科技 UTrend Tech Co., Ltd.","logo":{"@type":"ImageObject","url":"https://getutrend.com/favicon/web-app-manifest-512x512.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://getutrend.com/insights/crm-sales-service-process-checklist.html"},"dateModified":"2026-06-01","datePublished":"2026-06-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://getutrend.com/"},{"@type":"ListItem","position":2,"name":"最新觀點","item":"https://getutrend.com/insights.html"},{"@type":"ListItem","position":3,"name":"CRM 系統導入前，銷售與客服流程怎麼整理？","item":"https://getutrend.com/insights/crm-sales-service-process-checklist.html"}]}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL95MJHYGS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XL95MJHYGS');
+</script>
+  <script type="module" crossorigin src="/assets/shared-Bn1rQewm.js"></script>
+  <script type="module" crossorigin src="/assets/article-static-BV8XyZZI.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/shared-CN2MrhKg.css">
+</head>
+<body class="font-body text-ink">
+
+<div class="atmosphere" aria-hidden="true"></div>
+
+<div class="relative z-10 flex min-h-screen w-full flex-col overflow-x-hidden">
+
+<header id="navbar" class="sticky top-0 z-50 flex items-center justify-center border-b backdrop-blur-xl transition-all border-white/10 bg-base/70">
+<div id="navbar-inner" class="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-3 w-full max-w-7xl transition-all">
+<a href="/index.html" class="flex items-center gap-3" aria-label="樂呈科技首頁">
+<img src="/favicon/favicon.svg" alt="樂呈科技 UTrend Tech logo" width="40" height="45" class="h-10 w-auto" decoding="async" />
+<span class="company-name text-ink">
+<span class="company-name-zh">樂呈科技</span>
+<span class="company-name-en">UTrend Tech Co.</span>
+</span>
+</a>
+<div class="hidden md:flex flex-1 justify-end items-center gap-8">
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/about.html">關於我們</a>
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/services.html">服務項目</a>
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/cases.html">案例與成果</a>
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/insights.html">最新觀點</a>
+<a href="/contact.html" class="flex min-w-[84px] cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-lg h-10 px-5 bg-accent hover:bg-accent-dark text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors shadow-lg shadow-accent/30">
+<span class="material-symbols-outlined text-base">chat</span><span class="truncate">免費諮詢</span>
+</a>
+</div>
+<button id="menu-toggle" class="md:hidden flex items-center justify-center rounded-lg h-10 w-10 border border-white/15 text-ink-soft" aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full border-b backdrop-blur-xl border-white/10 bg-base/95">
+<nav class="flex flex-col gap-1 px-4 py-4">
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/about.html">關於我們</a>
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/services.html">服務項目</a>
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/cases.html">案例與成果</a>
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/insights.html">最新觀點</a>
+<a class="mt-2 flex items-center justify-center gap-1.5 rounded-lg h-11 px-5 bg-accent hover:bg-accent-dark text-white text-sm font-bold transition-colors" href="/contact.html"><span class="material-symbols-outlined text-base">chat</span>免費諮詢</a>
+</nav>
+</div>
+</header>
+
+<main class="flex flex-1 justify-center">
+<div class="flex flex-col w-full max-w-3xl px-4 sm:px-8 py-12 md:py-16">
+
+<nav aria-label="麵包屑" class="mb-8">
+<ol class="flex items-center flex-wrap gap-2 text-sm text-ink-soft">
+<li><a href="/index.html" class="hover:text-white transition-colors">首頁</a></li>
+<li aria-hidden="true" class="text-ink-soft/40">/</li>
+<li><a href="/insights.html" class="hover:text-white transition-colors">最新觀點</a></li>
+<li aria-hidden="true" class="text-ink-soft/40">/</li>
+<li class="text-ink truncate max-w-[55%]" aria-current="page">CRM 系統導入前，銷售與客服流程怎麼整理？</li>
+</ol>
+</nav>
+
+<article>
+<div class="flex flex-col gap-5">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="px-3 py-1 text-xs font-bold rounded-full bg-primary/20 text-primary-glow">IT諮詢</span>
+<time datetime="2026-06-01" class="text-ink-soft text-sm">2026年6月</time>
+<span class="text-ink-soft text-sm">·</span>
+<span class="text-ink-soft text-sm">6 分鐘閱讀</span>
+</div>
+<h1 class="font-display text-3xl md:text-5xl font-black leading-[1.15] tracking-[-0.02em] text-white">CRM 系統導入前，銷售與客服流程怎麼整理？</h1>
+<p class="text-ink-soft text-lg leading-relaxed">CRM 導入不只是買系統，而是把銷售與客服的人為習慣，整理成可追蹤、可管理、可優化的標準流程。本文從 DDD、UBPL、UDM 與狀態機角度，協助企業導入前先做好盤點。</p>
+<div class="flex items-center gap-3 border-t border-white/10 mt-2 pt-5">
+<span class="flex h-10 w-10 items-center justify-center rounded-full font-bold bg-primary/30 text-primary-glow">樂</span>
+<span class="text-ink text-sm font-semibold">樂呈科技顧問團隊</span>
+</div>
+</div>
+
+<div class="relative w-full h-48 md:h-64 rounded-2xl my-10 flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
+<span class="material-symbols-outlined text-white text-7xl">support_agent</span>
+</div>
+
+<div class="prose prose-invert prose-lg max-w-none
+  prose-headings:font-display prose-headings:text-white prose-headings:tracking-tight
+  prose-a:text-primary-glow prose-strong:text-white
+  prose-blockquote:border-accent prose-blockquote:text-ink-soft
+  prose-table:text-ink prose-th:text-white prose-li:marker:text-accent">
+<p>CRM 系統導入前，企業最常問的是：「哪一套 CRM 比較好？」但真正該先問的是：<strong>我們的銷售與客服流程，是否已經清楚到可以被系統承接？</strong></p>
+<p>很多企業主其實很孤單。你知道客戶資料散落在業務手機、Line、Email、Excel 裡很危險；你也知道客服回覆品質不穩、案件追蹤斷裂，長期會傷害客戶信任。但一談到 CRM 導入，內部就開始出現不同聲音：業務怕被監控、客服怕工作變多、主管想要報表，第一線卻覺得系統只是新的負擔。</p>
+<p>CRM 不是單純的客戶資料庫，而是企業把「人為經驗」轉化為「可管理流程」的關鍵工具。尤其在 SFA (Sales Force Automation - 銷售團隊自動化) 的場景中，重點不是讓業務多填欄位，而是讓每個商機、每次跟進、每個客訴都有清楚狀態與下一步。</p>
+<p>換句話說，CRM 導入前最重要的工作，是<strong>將人為的習慣，落實為標準的狀態機（State Machine）</strong>。</p>
+<h2>常見誤區：CRM 導入前最容易踩的 3 個雷</h2>
+<h3>1. 以為 CRM 可以直接改善業績</h3>
+<p>CRM 可以提升追蹤效率、降低漏單機率、強化客戶服務品質，但它不能自動創造銷售紀律。</p>
+<p>如果業務流程本來就不清楚，CRM 只會把混亂數位化。例如：</p>
+<ul>
+<li>商機階段由業務自行判斷，沒有共同標準</li>
+<li>報價後是否追蹤，全靠個人習慣</li>
+<li>客戶問題是否升級，沒有明確規則</li>
+<li>成交或流失原因沒有被記錄</li>
+<li>主管只看結果，無法看見過程風險</li>
+</ul>
+<p>導入 CRM 前，企業要先定義「什麼叫有效跟進」、「什麼叫高機率成交」、「什麼情況必須升級主管」。這些規則沒有先講清楚，系統再漂亮也很難產生管理價值。</p>
+<h3>2. 只要求填資料，沒有設計使用者流程</h3>
+<p>很多 CRM 失敗，是因為企業把系統設計成「主管要看的表單」，卻忽略第一線使用者每天怎麼工作。</p>
+<p>業務最在意的是：能不能更快找到客戶資訊、追蹤待辦、掌握下一步。客服最在意的是：能不能快速理解客戶背景、問題紀錄與處理狀態。</p>
+<p>若 CRM 只是要求填更多欄位，團隊自然會抗拒。好的流程整理應該從 UBPL 的角度出發，也就是從使用者行為與業務流程出發，理解「人在真實工作中如何完成任務」。</p>
+<p>導入前應訪談：</p>
+<ul>
+<li>業務每天如何開發、跟進、報價與成交？</li>
+<li>客服如何接案、分類、回覆、升級與結案？</li>
+<li>哪些資料現在重複輸入？</li>
+<li>哪些資訊最常找不到？</li>
+<li>哪些流程其實藏在 Line 群組或個人筆記裡？</li>
+</ul>
+<p>CRM 的價值，不是逼人配合系統，而是讓系統支援真正的工作節奏。</p>
+<h3>3. 客戶資料沒有統一，導致報表不可信</h3>
+<p>CRM 的核心是客戶資料。如果客戶名稱、聯絡人、商機、服務案件、合約資料彼此斷裂，主管看到的報表就很容易失真。</p>
+<p>這也是 UDM（Unified Data Model，統一資料模型）重要的原因。企業必須先建立一致的資料語言，例如：</p>
+<ul>
+<li>一個客戶是否可有多個聯絡人？</li>
+<li>潛在客戶、正式客戶、流失客戶如何定義？</li>
+<li>商機、報價、訂單之間如何串接？</li>
+<li>客服案件是否要連到合約或產品？</li>
+<li>客戶等級、產業別、來源別是否有統一分類？</li>
+</ul>
+<p>資料沒有整理好，CRM 只會變成另一個資料孤島。</p>
+<h2>挑選標準：CRM 導入前應整理的 3 個核心流程</h2>
+<h3>1. 銷售流程：用狀態機管理商機推進</h3>
+<p>銷售流程最適合用狀態機整理。所謂狀態機，就是把商機從開始到結束拆成明確狀態，並定義每個狀態能往哪裡走、需要什麼條件。</p>
+<p>例如一個基本商機流程可以是：</p>
+<ul>
+<li>新線索</li>
+<li>已聯繫</li>
+<li>需求確認</li>
+<li>方案提案</li>
+<li>報價中</li>
+<li>談判中</li>
+<li>成交</li>
+<li>失單</li>
+<li>暫緩</li>
+</ul>
+<p>每個狀態都要定義清楚：</p>
+<ul>
+<li>進入此狀態的條件是什麼？</li>
+<li>負責人是誰？</li>
+<li>下一步動作是什麼？</li>
+<li>超過幾天未更新要提醒？</li>
+<li>哪些狀態需要主管介入？</li>
+</ul>
+<p>這就是 SFA (Sales Force Automation - 銷售團隊自動化) 真正的價值：不是監控業務，而是讓銷售節奏可視化，讓主管能及早發現卡關商機。</p>
+<h3>2. 客服流程：把案件從接收走到結案</h3>
+<p>客服流程也需要狀態化。常見案件流程可以設計為：</p>
+<ul>
+<li>新案件</li>
+<li>已分派</li>
+<li>處理中</li>
+<li>等待客戶回覆</li>
+<li>等待內部支援</li>
+<li>已解決</li>
+<li>已結案</li>
+<li>重新開啟</li>
+</ul>
+<p>這些狀態看似簡單，卻能解決很多管理痛點。主管可以看見哪些案件卡在內部支援，哪些客戶等待太久，哪些問題反覆發生。</p>
+<p>更重要的是，客服不再只是「誰記得誰處理」，而是成為可追蹤、可交接、可改善的服務流程。</p>
+<h3>3. 跨部門流程：用 DDD 對齊共同語言</h3>
+<p>CRM 不只影響業務與客服，也會牽涉行銷、財務、產品、工程與管理層。這時可以用 DDD（Domain-Driven Design，領域驅動設計）的概念，先對齊企業內部對核心名詞的理解。</p>
+<p>例如：</p>
+<ul>
+<li>「客戶」在行銷眼中可能是名單</li>
+<li>「客戶」在業務眼中是商機對象</li>
+<li>「客戶」在客服眼中是服務紀錄</li>
+<li>「客戶」在財務眼中是合約與收款單位</li>
+</ul>
+<p>如果語言沒有先對齊，CRM 上線後就會出現欄位混亂、流程衝突與報表失真。DDD 的價值，是幫助企業先釐清業務邊界，再設計系統邏輯。</p>
+<h2>評估步驟：如何透過第一面談判斷顧問是否適合？</h2>
+<p>如果你正在尋找 CRM 導入顧問，第一面談不要只聽他介紹功能，而要觀察他是否理解你的營運現場。</p>
+<h3>1. 他是否先問流程，而不是先推系統？</h3>
+<p>好的顧問會先問：</p>
+<ul>
+<li>目前線索從哪裡來？</li>
+<li>業務如何判斷商機階段？</li>
+<li>報價後多久追蹤一次？</li>
+<li>客服案件如何分類與升級？</li>
+<li>主管現在最想看見哪些指標？</li>
+<li>過去 CRM 或表單工具為什麼沒有成功？</li>
+</ul>
+<p>如果顧問一開始就推薦套裝方案，卻沒有理解你的銷售與客服節奏，你要特別小心。</p>
+<h3>2. 他是否能把人為習慣轉成系統規則？</h3>
+<p>真正專業的顧問，會協助你把模糊的管理期待，轉換成可執行的系統規則。</p>
+<p>例如：</p>
+<ul>
+<li>商機超過 7 天未更新，自動提醒負責業務</li>
+<li>報價金額超過門檻，需主管審核</li>
+<li>客訴案件超過 SLA，自動升級</li>
+<li>成交後自動建立客服交接任務</li>
+<li>失單原因必填，作為後續分析依據</li>
+</ul>
+<p>這些設計才是 CRM 的核心。系統不是記錄過去，而是推動下一步行動。</p>
+<h3>3. 他是否重視資料治理與變革管理？</h3>
+<p>CRM 導入一定會碰到人的抗拒。業務可能擔心客戶被公司拿走，客服可能擔心每個動作都被檢查，主管可能期待立刻看到漂亮報表。</p>
+<p>適合的顧問不會只談功能，也會協助企業建立：</p>
+<ul>
+<li>客戶資料權限規則</li>
+<li>商機與案件狀態定義</li>
+<li>必填欄位與資料品質規範</li>
+<li>教育訓練與上線支持</li>
+<li>上線後的檢討與優化節奏</li>
+</ul>
+<p>CRM 導入不是一次性的 IT 專案，而是銷售與服務管理方式的升級。</p>
+<h2>結語：CRM 成功的關鍵，是先整理流程，再導入系統</h2>
+<p>CRM 系統不會自動讓業績變好，也不會自動讓客服變專業。真正有效的 CRM，是把企業累積多年的銷售經驗、服務習慣與客戶知識，整理成可追蹤、可衡量、可優化的流程。</p>
+<p>導入前，請先停下來問自己：</p>
+<p><strong>我們是否已經把銷售與客服的關鍵狀態定義清楚？我們是否知道哪些資料要被留下？我們是否準備好讓團隊用同一套語言服務客戶？</strong></p>
+<p>樂呈科技顧問團隊可協助企業進行 CRM 導入前評估、SFA 流程設計、客服狀態機規劃、UDM 資料模型梳理與跨部門流程盤點。從第一次初步諮詢開始，我們陪你把模糊的習慣整理成清楚的系統規則，讓 CRM 真正成為企業成長的引擎。</p>
+<h2>FAQ：CRM 導入前，企業主最常問的 3 個問題</h2>
+<h3>1. CRM 導入前一定要先整理銷售流程嗎？</h3>
+<p>是。若沒有先定義線索、商機、報價、成交、失單等階段，CRM 很容易變成資料填寫工具，而無法支援銷售管理與預測。</p>
+<h3>2. SFA 和 CRM 有什麼不同？</h3>
+<p>CRM 是客戶關係管理的整體系統，SFA (Sales Force Automation - 銷售團隊自動化) 則偏重銷售流程自動化，例如線索追蹤、商機階段、待辦提醒、報價流程與業績預測。</p>
+<h3>3. 客服流程也需要設計狀態機嗎？</h3>
+<p>需要。客服案件若能明確定義接收、分派、處理、等待、解決、結案等狀態，就能提升交接效率、降低漏回風險，並讓主管看見服務瓶頸。</p>
+
+</div>
+
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#16234d] p-8 md:p-10 text-center mt-14">
+<div aria-hidden="true" class="pointer-events-none absolute -bottom-16 -right-10 h-56 w-56 rounded-full bg-accent/30 blur-3xl"></div>
+<div class="relative flex flex-col items-center gap-4">
+<h2 class="font-display text-white text-2xl md:text-3xl font-black tracking-tight">想深入聊聊你的數位轉型？</h2>
+<p class="text-white/80 max-w-md">我們的顧問團隊樂意提供免費的初步諮詢。</p>
+<a href="/contact.html" class="inline-flex items-center gap-2 rounded-lg px-7 py-3.5 bg-accent hover:bg-accent-dark text-white font-bold transition-all shadow-lg shadow-accent/30 hover:-translate-y-0.5">
+<span class="material-symbols-outlined">send</span> 立即預約免費諮詢
+</a>
+</div>
+</div>
+</article>
+
+</div>
+</main>
+
+<footer class="border-t py-12 border-white/10 bg-base/60 backdrop-blur-xl">
+<div class="flex flex-col gap-10 px-4 sm:px-10 max-w-7xl mx-auto w-full">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1 flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="font-black text-lg text-white">樂呈科技</span>
+<span class="text-xs text-ink-soft">UTrend Tech</span>
+</div>
+<p class="text-sm leading-relaxed text-ink-soft">最懂產業流程的 IT 顧問團隊，您最值得信賴的數位轉型夥伴。</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-white">服務</h4>
+<ul class="flex flex-col gap-2.5">
+<li><a href="/services.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">ERP／CRM 顧問</a></li>
+<li><a href="/services.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">AI 解決方案</a></li>
+<li><a href="/services.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">客製化開發</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-white">公司</h4>
+<ul class="flex flex-col gap-2.5">
+<li><a href="/about.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">關於我們</a></li>
+<li><a href="/cases.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">案例與成果</a></li>
+<li><a href="/insights.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">最新觀點</a></li>
+<li><a href="/contact.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">聯絡我們</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-white">聯繫我們</h4>
+<ul class="flex flex-col gap-2.5">
+<li><a href="mailto:salesteam@getutrend.com" class="flex items-center gap-2 text-sm transition-colors text-ink-soft hover:text-primary-glow"><span class="material-symbols-outlined text-base">mail</span>salesteam@getutrend.com</a></li>
+<li><a href="/contact.html" class="flex items-center gap-2 text-sm transition-colors text-ink-soft hover:text-primary-glow"><span class="material-symbols-outlined text-base">forum</span>線上諮詢表單</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t pt-6 border-white/10">
+<p class="text-sm text-center text-ink-soft">&copy; 2026 樂呈科技 UTrend Tech Co., Ltd. 版權所有。</p>
+</div>
+</div>
+</footer>
+
+</div>
+</body>
+</html>

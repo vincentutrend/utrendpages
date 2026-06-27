@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="AI 導入不是買工具就能成功。本文從資料品質、商業場景、Token 成本、流程整合與 Zero Trust 資安角度，解析企業導入 AI 最常踩的 5 個雷。" />
+<meta name="keywords" content="AI應用,數位轉型,ERP,AI,系統整合,樂呈科技,UTrend" />
+<meta name="author" content="UTrend Tech Co., Ltd." />
+<meta name="theme-color" content="#070B16" />
+
+<link rel="canonical" href="https://getutrend.com/insights/why-ai-projects-fail-in-business.html" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="企業導入 AI 最常失敗的 5 個原因｜樂呈科技 UTrend Tech" />
+<meta property="og:description" content="AI 導入不是買工具就能成功。本文從資料品質、商業場景、Token 成本、流程整合與 Zero Trust 資安角度，解析企業導入 AI 最常踩的 5 個雷。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://getutrend.com/insights/why-ai-projects-fail-in-business.html" />
+<meta property="og:image" content="https://getutrend.com/og-cover.png" />
+<meta property="og:image:secure_url" content="https://getutrend.com/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="樂呈科技 UTrend Tech — 從流程到系統，讓數位轉型真正落地" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:site_name" content="樂呈科技 UTrend Tech" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="企業導入 AI 最常失敗的 5 個原因｜樂呈科技 UTrend Tech" />
+<meta name="twitter:description" content="AI 導入不是買工具就能成功。本文從資料品質、商業場景、Token 成本、流程整合與 Zero Trust 資安角度，解析企業導入 AI 最常踩的 5 個雷。" />
+<meta name="twitter:image" content="https://getutrend.com/og-cover.png" />
+<meta name="twitter:image:alt" content="樂呈科技 UTrend Tech — 從流程到系統，讓數位轉型真正落地" />
+
+<title>企業導入 AI 最常失敗的 5 個原因｜樂呈科技 UTrend Tech</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link crossorigin href="https://images.unsplash.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block" rel="stylesheet" />
+
+<!-- Structured Data：Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "樂呈科技 UTrend Tech Co., Ltd.",
+  "url": "https://getutrend.com/",
+  "logo": "https://getutrend.com/favicon/web-app-manifest-512x512.png",
+  "image": "https://getutrend.com/og-cover.png",
+  "description": "最懂產業流程的 IT 顧問團隊，提供 ERP／CRM 導入、AI 解決方案與客製化系統開發。",
+  "email": "salesteam@getutrend.com",
+  "telephone": "+886-911-653-320",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "敦化北路207號8樓之13",
+    "addressLocality": "松山區",
+    "addressRegion": "臺北市",
+    "postalCode": "105",
+    "addressCountry": "TW"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+886-911-653-320",
+    "email": "salesteam@getutrend.com",
+    "contactType": "sales",
+    "areaServed": "TW",
+    "availableLanguage": ["zh-Hant"]
+  },
+  "areaServed": "TW",
+  "knowsAbout": ["ERP 導入", "CRM 系統", "AI 解決方案", "數位轉型", "系統整合", "客製化軟體開發"]
+}
+</script>
+<!-- Structured Data：WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "樂呈科技 UTrend Tech",
+  "url": "https://getutrend.com/",
+  "inLanguage": "zh-Hant",
+  "publisher": { "@type": "Organization", "name": "樂呈科技 UTrend Tech Co., Ltd." }
+}
+</script>
+<!-- Structured Data：文章（BlogPosting） -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"企業導入 AI 最常失敗的 5 個原因","description":"AI 導入不是買工具就能成功。本文從資料品質、商業場景、Token 成本、流程整合與 Zero Trust 資安角度，解析企業導入 AI 最常踩的 5 個雷。","image":"https://getutrend.com/og-cover.png","author":{"@type":"Organization","name":"樂呈科技顧問團隊"},"publisher":{"@type":"Organization","name":"樂呈科技 UTrend Tech Co., Ltd.","logo":{"@type":"ImageObject","url":"https://getutrend.com/favicon/web-app-manifest-512x512.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://getutrend.com/insights/why-ai-projects-fail-in-business.html"},"dateModified":"2026-06-01","datePublished":"2026-06-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://getutrend.com/"},{"@type":"ListItem","position":2,"name":"最新觀點","item":"https://getutrend.com/insights.html"},{"@type":"ListItem","position":3,"name":"企業導入 AI 最常失敗的 5 個原因","item":"https://getutrend.com/insights/why-ai-projects-fail-in-business.html"}]}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL95MJHYGS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XL95MJHYGS');
+</script>
+  <script type="module" crossorigin src="/assets/shared-Bn1rQewm.js"></script>
+  <script type="module" crossorigin src="/assets/article-static-BV8XyZZI.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/shared-CN2MrhKg.css">
+</head>
+<body class="font-body text-ink">
+
+<div class="atmosphere" aria-hidden="true"></div>
+
+<div class="relative z-10 flex min-h-screen w-full flex-col overflow-x-hidden">
+
+<header id="navbar" class="sticky top-0 z-50 flex items-center justify-center border-b backdrop-blur-xl transition-all border-white/10 bg-base/70">
+<div id="navbar-inner" class="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-3 w-full max-w-7xl transition-all">
+<a href="/index.html" class="flex items-center gap-3" aria-label="樂呈科技首頁">
+<img src="/favicon/favicon.svg" alt="樂呈科技 UTrend Tech logo" width="40" height="45" class="h-10 w-auto" decoding="async" />
+<span class="company-name text-ink">
+<span class="company-name-zh">樂呈科技</span>
+<span class="company-name-en">UTrend Tech Co.</span>
+</span>
+</a>
+<div class="hidden md:flex flex-1 justify-end items-center gap-8">
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/about.html">關於我們</a>
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/services.html">服務項目</a>
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/cases.html">案例與成果</a>
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/insights.html">最新觀點</a>
+<a href="/contact.html" class="flex min-w-[84px] cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-lg h-10 px-5 bg-accent hover:bg-accent-dark text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors shadow-lg shadow-accent/30">
+<span class="material-symbols-outlined text-base">chat</span><span class="truncate">免費諮詢</span>
+</a>
+</div>
+<button id="menu-toggle" class="md:hidden flex items-center justify-center rounded-lg h-10 w-10 border border-white/15 text-ink-soft" aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full border-b backdrop-blur-xl border-white/10 bg-base/95">
+<nav class="flex flex-col gap-1 px-4 py-4">
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/about.html">關於我們</a>
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/services.html">服務項目</a>
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/cases.html">案例與成果</a>
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/insights.html">最新觀點</a>
+<a class="mt-2 flex items-center justify-center gap-1.5 rounded-lg h-11 px-5 bg-accent hover:bg-accent-dark text-white text-sm font-bold transition-colors" href="/contact.html"><span class="material-symbols-outlined text-base">chat</span>免費諮詢</a>
+</nav>
+</div>
+</header>
+
+<main class="flex flex-1 justify-center">
+<div class="flex flex-col w-full max-w-3xl px-4 sm:px-8 py-12 md:py-16">
+
+<nav aria-label="麵包屑" class="mb-8">
+<ol class="flex items-center flex-wrap gap-2 text-sm text-ink-soft">
+<li><a href="/index.html" class="hover:text-white transition-colors">首頁</a></li>
+<li aria-hidden="true" class="text-ink-soft/40">/</li>
+<li><a href="/insights.html" class="hover:text-white transition-colors">最新觀點</a></li>
+<li aria-hidden="true" class="text-ink-soft/40">/</li>
+<li class="text-ink truncate max-w-[55%]" aria-current="page">企業導入 AI 最常失敗的 5 個原因</li>
+</ol>
+</nav>
+
+<article>
+<div class="flex flex-col gap-5">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="px-3 py-1 text-xs font-bold rounded-full bg-primary/20 text-primary-glow">AI應用</span>
+<time datetime="2026-06-01" class="text-ink-soft text-sm">2026年6月</time>
+<span class="text-ink-soft text-sm">·</span>
+<span class="text-ink-soft text-sm">6 分鐘閱讀</span>
+</div>
+<h1 class="font-display text-3xl md:text-5xl font-black leading-[1.15] tracking-[-0.02em] text-white">企業導入 AI 最常失敗的 5 個原因</h1>
+<p class="text-ink-soft text-lg leading-relaxed">AI 導入不是買工具就能成功。本文從資料品質、商業場景、Token 成本、流程整合與 Zero Trust 資安角度，解析企業導入 AI 最常踩的 5 個雷。</p>
+<div class="flex items-center gap-3 border-t border-white/10 mt-2 pt-5">
+<span class="flex h-10 w-10 items-center justify-center rounded-full font-bold bg-primary/30 text-primary-glow">樂</span>
+<span class="text-ink text-sm font-semibold">樂呈科技顧問團隊</span>
+</div>
+</div>
+
+<div class="relative w-full h-48 md:h-64 rounded-2xl my-10 flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-accent">
+<span class="material-symbols-outlined text-white text-7xl">smart_toy</span>
+</div>
+
+<div class="prose prose-invert prose-lg max-w-none
+  prose-headings:font-display prose-headings:text-white prose-headings:tracking-tight
+  prose-a:text-primary-glow prose-strong:text-white
+  prose-blockquote:border-accent prose-blockquote:text-ink-soft
+  prose-table:text-ink prose-th:text-white prose-li:marker:text-accent">
+<p>AI 已經成為企業數位轉型中最熱門的關鍵字。許多企業主與決策者都在問：「我們是不是也該導入 AI？」但真正令人焦慮的是，市場上案例很多、工具很多、顧問很多，卻很少有人能清楚告訴你：<strong>AI 到底該先解決哪一個商業問題？</strong></p>
+<p>不少企業花了預算導入聊天機器人、智能客服、文件摘要、銷售預測或內部知識庫，最後卻發現成效不如預期。不是模型不好，而是資料沒整理、場景沒切清楚、成本沒算進去、流程沒接上，甚至一不小心把敏感資料送到不該去的地方。</p>
+<p>AI 不是魔法，而是一套需要資料、流程、權限、使用者行為與商業目標共同支撐的系統工程。以下是企業導入 AI 最常失敗的 5 個原因。</p>
+<h2>常見誤區：企業導入 AI 最容易踩的 5 個雷</h2>
+<h3>1. 垃圾進，垃圾出（Garbage In, Garbage Out）的數據地獄</h3>
+<p>AI 的輸出品質，取決於輸入資料的品質。如果企業內部資料分散在 Excel、ERP、CRM、Line、Email 與個人硬碟中，而且欄位定義不一致、版本混亂、缺乏權限控管，再強的 AI 也只能產生看似合理、實則不可靠的答案。</p>
+<p>常見問題包括：</p>
+<ul>
+<li>客戶名稱重複，無法判斷同一家公司</li>
+<li>產品料號不一致，報表難以整合</li>
+<li>文件版本混亂，AI 讀到過期資訊</li>
+<li>知識庫沒有分類，搜尋與生成結果失準</li>
+<li>缺乏資料責任人，沒有人維護品質</li>
+</ul>
+<p>這就是為什麼 UDM（Unified Data Model，統一資料模型）很重要。企業導入 AI 前，應先建立一致的資料語言，釐清主資料、交易資料、文件資料與敏感資料的邊界。</p>
+<h3>2. 拿大砲打小鳥，缺乏對商業場景的「戰略解耦」</h3>
+<p>很多 AI 專案失敗，不是技術不夠，而是場景太大、目標太模糊。</p>
+<p>例如一開始就想做「全公司 AI 助理」，聽起來很有願景，但實際上會牽涉資料權限、流程責任、跨部門知識、系統整合與資安控管，導致專案遲遲無法落地。</p>
+<p>更好的做法是進行戰略解耦，把龐大的願景拆成小而清楚的商業場景：</p>
+<ul>
+<li>客服：先處理常見問題回覆與案件分類</li>
+<li>業務：先做商機摘要與客戶互動紀錄整理</li>
+<li>財務：先做發票、合約與付款條件比對</li>
+<li>人資：先做內部規章查詢與新人訓練輔助</li>
+<li>主管：先做營運報表摘要與異常提醒</li>
+</ul>
+<p>DDD（Domain-Driven Design，領域驅動設計）的價值在這裡非常明顯。它能協助企業先釐清不同業務領域的邊界，避免所有需求混在一起，最後變成一個又大又慢、無法驗證成效的 AI 專案。</p>
+<h3>3. 無底洞般的 Token 碎紙機：忽略實質營運成本（OpEx）</h3>
+<p>許多企業在規劃 AI 時，只看開發成本，卻忽略上線後的營運成本。尤其生成式 AI 以 Token 計費，若沒有設計好提示詞、資料檢索、快取、權限與使用規則，成本可能像碎紙機一樣每天吞掉預算。</p>
+<p>常見成本失控原因包括：</p>
+<ul>
+<li>每次查詢都送入過長文件</li>
+<li>沒有區分簡單任務與高階模型任務</li>
+<li>缺乏快取機制，重複問題反覆消耗 Token</li>
+<li>沒有使用者配額與部門成本歸屬</li>
+<li>沒有監控每個場景的投入產出比</li>
+</ul>
+<p>專業的 IT 諮詢服務不會只問「模型準不準」，也會問「每次使用要花多少錢、誰來付、是否值得」。AI 導入必須把 CapEx 與 OpEx 一起納入評估，否則初期看似成功，後期卻因成本失控而被迫停用。</p>
+<h3>4. 忽略最後一哩路的流程整合與變革管理（Change Management）</h3>
+<p>AI 產生答案，只是第一步。真正的問題是：這個答案要如何進入企業流程？</p>
+<p>如果 AI 幫客服產生回覆，但沒有接到工單系統，客服仍要手動複製貼上；如果 AI 幫業務整理會議摘要，但沒有同步到 CRM，主管仍看不到商機狀態；如果 AI 幫主管分析報表，但沒有定義決策責任，洞察也只會停留在簡報裡。</p>
+<p>這就是「最後一哩路」的問題。</p>
+<p>UBPL 可用來從使用者與業務流程出發，盤點人在真實工作中如何完成任務。導入 AI 前，企業應先問：</p>
+<ul>
+<li>使用者在哪個流程節點需要 AI？</li>
+<li>AI 的輸出是否要被審核？</li>
+<li>產出結果要寫回哪個系統？</li>
+<li>錯誤答案由誰負責確認？</li>
+<li>哪些工作會因 AI 而重新分工？</li>
+</ul>
+<p>AI 專案的成功，不只取決於模型能力，也取決於使用者是否願意相信、願意使用、願意把它納入日常工作。</p>
+<h3>5. 零信任（Zero Trust）資安防線失守，踩到資料外洩紅線</h3>
+<p>AI 導入最不能輕忽的是資安。很多員工為了方便，會把客戶資料、合約內容、財務資訊、程式碼或內部文件貼到外部 AI 工具中，企業卻沒有清楚規範。</p>
+<p>這可能造成嚴重風險：</p>
+<ul>
+<li>客戶個資外洩</li>
+<li>商業機密被外部服務保存</li>
+<li>合約與報價資訊暴露</li>
+<li>權限過大導致不該看的資料被查到</li>
+<li>AI 回答內容缺乏稽核紀錄</li>
+</ul>
+<p>Zero Trust 的核心精神是：<strong>永遠不預設信任，持續驗證每一次存取</strong>。企業導入 AI 時，應規劃資料分級、權限控管、使用紀錄、模型存取邊界與敏感資料遮罩。AI 越深入營運核心，資安設計越不能等到上線後才補。</p>
+<h2>挑選標準：好的 AI 顧問應該具備什麼能力？</h2>
+<p>企業若正在尋找 IT 顧問推薦，不應只看對方會不會串 API、會不會做聊天機器人，而要看他是否能同時理解商業、資料、流程與風險。</p>
+<p>優秀的 AI 顧問應具備：</p>
+<ul>
+<li>能用 DDD 協助企業拆解業務領域與優先場景</li>
+<li>能用 UDM 梳理資料模型與資料品質問題</li>
+<li>能用 UBPL 理解使用者流程與變革阻力</li>
+<li>能估算 Token、雲端、維運與整合成本</li>
+<li>能設計 Zero Trust 架構，避免資料外洩</li>
+<li>能把技術選項轉成決策者聽得懂的商業取捨</li>
+</ul>
+<p>真正成熟的顧問，不會一開始就承諾「AI 可以解決所有問題」，而會先協助你判斷哪些問題值得用 AI，哪些其實應該先整理流程或資料。</p>
+<h2>評估步驟：第一面談應該問顧問什麼？</h2>
+<p>第一面談時，企業主可以用以下問題快速判斷顧問是否務實：</p>
+<ul>
+<li>你會如何幫我們找出第一個適合導入 AI 的場景？</li>
+<li>你會如何評估資料是否足夠乾淨、完整、可用？</li>
+<li>你會如何估算 Token 與長期營運成本？</li>
+<li>AI 產出的內容若錯誤，流程上要如何審核？</li>
+<li>你會如何避免員工把敏感資料送到外部工具？</li>
+<li>專案成功後，應該用哪些指標衡量？</li>
+</ul>
+<p>如果對方只談模型、工具與炫目的 Demo，卻避談資料治理、流程整合、成本控管與資安責任，就要特別小心。</p>
+<h2>結語：AI 不是跟風投資，而是企業能力的放大器</h2>
+<p>AI 導入成功的企業，不一定是最早採用工具的企業，而是最清楚自己商業問題、資料基礎與流程瓶頸的企業。</p>
+<p>如果資料混亂，AI 會放大混亂；如果流程斷裂，AI 會加速斷裂；如果權限鬆散，AI 會放大資安風險。反過來說，當企業先把資料、流程、場景與權限整理清楚，AI 就能成為真正推動成長的力量。</p>
+<p>樂呈科技顧問團隊可協助企業進行 AI 導入前評估、商業場景拆解、資料模型盤點、Token 成本估算、流程整合與 Zero Trust 資安規劃。從一次初步諮詢開始，我們陪你避開昂貴試錯，讓 AI 投資真正回到營運成果。</p>
+<h2>FAQ：企業導入 AI 前最常問的 3 個問題</h2>
+<h3>1. 企業導入 AI 前，最應該先做什麼？</h3>
+<p>最應先盤點商業場景與資料品質。不要先買工具，而要先確認哪個問題值得用 AI 解決，以及資料是否足以支撐可靠輸出。</p>
+<h3>2. AI 專案一定要從大型系統開始嗎？</h3>
+<p>不建議。多數企業更適合從小場景開始，例如客服 FAQ、合約摘要、銷售紀錄整理或內部知識查詢，先驗證價值後再擴大。</p>
+<h3>3. 導入 AI 如何避免資料外洩？</h3>
+<p>應建立 Zero Trust 架構，包含資料分級、權限控管、敏感資訊遮罩、使用紀錄、模型存取邊界與員工使用規範，避免機密資料被不當使用。</p>
+
+</div>
+
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#16234d] p-8 md:p-10 text-center mt-14">
+<div aria-hidden="true" class="pointer-events-none absolute -bottom-16 -right-10 h-56 w-56 rounded-full bg-accent/30 blur-3xl"></div>
+<div class="relative flex flex-col items-center gap-4">
+<h2 class="font-display text-white text-2xl md:text-3xl font-black tracking-tight">想深入聊聊你的數位轉型？</h2>
+<p class="text-white/80 max-w-md">我們的顧問團隊樂意提供免費的初步諮詢。</p>
+<a href="/contact.html" class="inline-flex items-center gap-2 rounded-lg px-7 py-3.5 bg-accent hover:bg-accent-dark text-white font-bold transition-all shadow-lg shadow-accent/30 hover:-translate-y-0.5">
+<span class="material-symbols-outlined">send</span> 立即預約免費諮詢
+</a>
+</div>
+</div>
+</article>
+
+</div>
+</main>
+
+<footer class="border-t py-12 border-white/10 bg-base/60 backdrop-blur-xl">
+<div class="flex flex-col gap-10 px-4 sm:px-10 max-w-7xl mx-auto w-full">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1 flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="font-black text-lg text-white">樂呈科技</span>
+<span class="text-xs text-ink-soft">UTrend Tech</span>
+</div>
+<p class="text-sm leading-relaxed text-ink-soft">最懂產業流程的 IT 顧問團隊，您最值得信賴的數位轉型夥伴。</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-white">服務</h4>
+<ul class="flex flex-col gap-2.5">
+<li><a href="/services.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">ERP／CRM 顧問</a></li>
+<li><a href="/services.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">AI 解決方案</a></li>
+<li><a href="/services.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">客製化開發</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-white">公司</h4>
+<ul class="flex flex-col gap-2.5">
+<li><a href="/about.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">關於我們</a></li>
+<li><a href="/cases.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">案例與成果</a></li>
+<li><a href="/insights.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">最新觀點</a></li>
+<li><a href="/contact.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">聯絡我們</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-white">聯繫我們</h4>
+<ul class="flex flex-col gap-2.5">
+<li><a href="mailto:salesteam@getutrend.com" class="flex items-center gap-2 text-sm transition-colors text-ink-soft hover:text-primary-glow"><span class="material-symbols-outlined text-base">mail</span>salesteam@getutrend.com</a></li>
+<li><a href="/contact.html" class="flex items-center gap-2 text-sm transition-colors text-ink-soft hover:text-primary-glow"><span class="material-symbols-outlined text-base">forum</span>線上諮詢表單</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t pt-6 border-white/10">
+<p class="text-sm text-center text-ink-soft">&copy; 2026 樂呈科技 UTrend Tech Co., Ltd. 版權所有。</p>
+</div>
+</div>
+</footer>
+
+</div>
+</body>
+</html>

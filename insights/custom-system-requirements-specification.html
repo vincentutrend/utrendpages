@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="客製化系統開發最怕需求寫成散文，導致估價失準、時程延誤與反覆追加。本文從 User Roles、State Machine、Data Schema、Edge Cases 與 Security 角度，協助企業寫出可落地的需求規格。" />
+<meta name="keywords" content="系統開發,數位轉型,ERP,AI,系統整合,樂呈科技,UTrend" />
+<meta name="author" content="UTrend Tech Co., Ltd." />
+<meta name="theme-color" content="#070B16" />
+
+<link rel="canonical" href="https://getutrend.com/insights/custom-system-requirements-specification.html" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="客製化系統開發前，需求規格怎麼寫｜樂呈科技 UTrend Tech" />
+<meta property="og:description" content="客製化系統開發最怕需求寫成散文，導致估價失準、時程延誤與反覆追加。本文從 User Roles、State Machine、Data Schema、Edge Cases 與 Security 角度，協助企業寫出可落地的需求規格。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://getutrend.com/insights/custom-system-requirements-specification.html" />
+<meta property="og:image" content="https://getutrend.com/og-cover.png" />
+<meta property="og:image:secure_url" content="https://getutrend.com/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="樂呈科技 UTrend Tech — 從流程到系統，讓數位轉型真正落地" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:site_name" content="樂呈科技 UTrend Tech" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="客製化系統開發前，需求規格怎麼寫｜樂呈科技 UTrend Tech" />
+<meta name="twitter:description" content="客製化系統開發最怕需求寫成散文，導致估價失準、時程延誤與反覆追加。本文從 User Roles、State Machine、Data Schema、Edge Cases 與 Security 角度，協助企業寫出可落地的需求規格。" />
+<meta name="twitter:image" content="https://getutrend.com/og-cover.png" />
+<meta name="twitter:image:alt" content="樂呈科技 UTrend Tech — 從流程到系統，讓數位轉型真正落地" />
+
+<title>客製化系統開發前，需求規格怎麼寫｜樂呈科技 UTrend Tech</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link crossorigin href="https://images.unsplash.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block" rel="stylesheet" />
+
+<!-- Structured Data：Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "樂呈科技 UTrend Tech Co., Ltd.",
+  "url": "https://getutrend.com/",
+  "logo": "https://getutrend.com/favicon/web-app-manifest-512x512.png",
+  "image": "https://getutrend.com/og-cover.png",
+  "description": "最懂產業流程的 IT 顧問團隊，提供 ERP／CRM 導入、AI 解決方案與客製化系統開發。",
+  "email": "salesteam@getutrend.com",
+  "telephone": "+886-911-653-320",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "敦化北路207號8樓之13",
+    "addressLocality": "松山區",
+    "addressRegion": "臺北市",
+    "postalCode": "105",
+    "addressCountry": "TW"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+886-911-653-320",
+    "email": "salesteam@getutrend.com",
+    "contactType": "sales",
+    "areaServed": "TW",
+    "availableLanguage": ["zh-Hant"]
+  },
+  "areaServed": "TW",
+  "knowsAbout": ["ERP 導入", "CRM 系統", "AI 解決方案", "數位轉型", "系統整合", "客製化軟體開發"]
+}
+</script>
+<!-- Structured Data：WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "樂呈科技 UTrend Tech",
+  "url": "https://getutrend.com/",
+  "inLanguage": "zh-Hant",
+  "publisher": { "@type": "Organization", "name": "樂呈科技 UTrend Tech Co., Ltd." }
+}
+</script>
+<!-- Structured Data：文章（BlogPosting） -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"客製化系統開發前，需求規格怎麼寫","description":"客製化系統開發最怕需求寫成散文，導致估價失準、時程延誤與反覆追加。本文從 User Roles、State Machine、Data Schema、Edge Cases 與 Security 角度，協助企業寫出可落地的需求規格。","image":"https://getutrend.com/og-cover.png","author":{"@type":"Organization","name":"樂呈科技顧問團隊"},"publisher":{"@type":"Organization","name":"樂呈科技 UTrend Tech Co., Ltd.","logo":{"@type":"ImageObject","url":"https://getutrend.com/favicon/web-app-manifest-512x512.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://getutrend.com/insights/custom-system-requirements-specification.html"},"dateModified":"2026-06-01","datePublished":"2026-06-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://getutrend.com/"},{"@type":"ListItem","position":2,"name":"最新觀點","item":"https://getutrend.com/insights.html"},{"@type":"ListItem","position":3,"name":"客製化系統開發前，需求規格怎麼寫","item":"https://getutrend.com/insights/custom-system-requirements-specification.html"}]}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL95MJHYGS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XL95MJHYGS');
+</script>
+  <script type="module" crossorigin src="/assets/shared-Bn1rQewm.js"></script>
+  <script type="module" crossorigin src="/assets/article-static-BV8XyZZI.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/shared-CN2MrhKg.css">
+</head>
+<body class="font-body text-ink">
+
+<div class="atmosphere" aria-hidden="true"></div>
+
+<div class="relative z-10 flex min-h-screen w-full flex-col overflow-x-hidden">
+
+<header id="navbar" class="sticky top-0 z-50 flex items-center justify-center border-b backdrop-blur-xl transition-all border-white/10 bg-base/70">
+<div id="navbar-inner" class="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-3 w-full max-w-7xl transition-all">
+<a href="/index.html" class="flex items-center gap-3" aria-label="樂呈科技首頁">
+<img src="/favicon/favicon.svg" alt="樂呈科技 UTrend Tech logo" width="40" height="45" class="h-10 w-auto" decoding="async" />
+<span class="company-name text-ink">
+<span class="company-name-zh">樂呈科技</span>
+<span class="company-name-en">UTrend Tech Co.</span>
+</span>
+</a>
+<div class="hidden md:flex flex-1 justify-end items-center gap-8">
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/about.html">關於我們</a>
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/services.html">服務項目</a>
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/cases.html">案例與成果</a>
+<a class="nav-link text-sm font-medium leading-normal transition-colors text-ink-soft hover:text-white" href="/insights.html">最新觀點</a>
+<a href="/contact.html" class="flex min-w-[84px] cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-lg h-10 px-5 bg-accent hover:bg-accent-dark text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors shadow-lg shadow-accent/30">
+<span class="material-symbols-outlined text-base">chat</span><span class="truncate">免費諮詢</span>
+</a>
+</div>
+<button id="menu-toggle" class="md:hidden flex items-center justify-center rounded-lg h-10 w-10 border border-white/15 text-ink-soft" aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full border-b backdrop-blur-xl border-white/10 bg-base/95">
+<nav class="flex flex-col gap-1 px-4 py-4">
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/about.html">關於我們</a>
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/services.html">服務項目</a>
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/cases.html">案例與成果</a>
+<a class="rounded-lg px-3 py-3 text-sm font-medium transition-colors text-ink hover:bg-white/10 hover:text-white" href="/insights.html">最新觀點</a>
+<a class="mt-2 flex items-center justify-center gap-1.5 rounded-lg h-11 px-5 bg-accent hover:bg-accent-dark text-white text-sm font-bold transition-colors" href="/contact.html"><span class="material-symbols-outlined text-base">chat</span>免費諮詢</a>
+</nav>
+</div>
+</header>
+
+<main class="flex flex-1 justify-center">
+<div class="flex flex-col w-full max-w-3xl px-4 sm:px-8 py-12 md:py-16">
+
+<nav aria-label="麵包屑" class="mb-8">
+<ol class="flex items-center flex-wrap gap-2 text-sm text-ink-soft">
+<li><a href="/index.html" class="hover:text-white transition-colors">首頁</a></li>
+<li aria-hidden="true" class="text-ink-soft/40">/</li>
+<li><a href="/insights.html" class="hover:text-white transition-colors">最新觀點</a></li>
+<li aria-hidden="true" class="text-ink-soft/40">/</li>
+<li class="text-ink truncate max-w-[55%]" aria-current="page">客製化系統開發前，需求規格怎麼寫</li>
+</ol>
+</nav>
+
+<article>
+<div class="flex flex-col gap-5">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="px-3 py-1 text-xs font-bold rounded-full bg-primary/20 text-primary-glow">系統開發</span>
+<time datetime="2026-06-01" class="text-ink-soft text-sm">2026年6月</time>
+<span class="text-ink-soft text-sm">·</span>
+<span class="text-ink-soft text-sm">6 分鐘閱讀</span>
+</div>
+<h1 class="font-display text-3xl md:text-5xl font-black leading-[1.15] tracking-[-0.02em] text-white">客製化系統開發前，需求規格怎麼寫</h1>
+<p class="text-ink-soft text-lg leading-relaxed">客製化系統開發最怕需求寫成散文，導致估價失準、時程延誤與反覆追加。本文從 User Roles、State Machine、Data Schema、Edge Cases 與 Security 角度，協助企業寫出可落地的需求規格。</p>
+<div class="flex items-center gap-3 border-t border-white/10 mt-2 pt-5">
+<span class="flex h-10 w-10 items-center justify-center rounded-full font-bold bg-primary/30 text-primary-glow">樂</span>
+<span class="text-ink text-sm font-semibold">樂呈科技顧問團隊</span>
+</div>
+</div>
+
+<div class="relative w-full h-48 md:h-64 rounded-2xl my-10 flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
+<span class="material-symbols-outlined text-white text-7xl">description</span>
+</div>
+
+<div class="prose prose-invert prose-lg max-w-none
+  prose-headings:font-display prose-headings:text-white prose-headings:tracking-tight
+  prose-a:text-primary-glow prose-strong:text-white
+  prose-blockquote:border-accent prose-blockquote:text-ink-soft
+  prose-table:text-ink prose-th:text-white prose-li:marker:text-accent">
+<p>客製化系統開發前，很多企業主最焦慮的不是「要不要做」，而是「到底要怎麼說清楚」。你明明知道現有流程卡住、Excel 快撐不住、部門之間靠人工追資料很痛苦，但一到要寫需求規格，就變成一份長長的文字描述。</p>
+<p>結果廠商看完說可以做，報價卻差很多；開發到一半才發現理解不同；上線前又冒出一堆「這個原本以為會有」的功能。最後企業花了錢、團隊累了，系統卻沒有真正解決問題。</p>
+<p>客製化系統開發最常犯的錯誤是寫成「散文」。散文可以表達感受，卻很難變成工程規格。真正好的需求文件，應該讓老闆、使用者、顧問、設計師與工程師都能用同一套語言理解：誰要用、做什麼、資料怎麼流、流程有哪些狀態、什麼情況不能發生。</p>
+<h2>常見誤區：需求規格最容易踩的 3 個雷</h2>
+<h3>1. 只寫想要什麼，沒有寫誰在什麼情境下使用</h3>
+<p>很多需求會寫成：「需要一個訂單管理系統」、「希望可以查詢客戶資料」、「主管要看報表」。這些句子方向沒錯，但對開發來說仍然太模糊。</p>
+<p>系統不是功能堆疊，而是角色在情境中完成任務。因此需求一開始就要寫清楚：</p>
+<ul>
+<li>誰會使用這個系統？</li>
+<li>每個角色的目標是什麼？</li>
+<li>他們現在怎麼做？</li>
+<li>哪些痛點最影響效率或風險？</li>
+<li>哪些操作需要權限限制？</li>
+</ul>
+<p>這就是 DDD（Domain-Driven Design，領域驅動設計）的精神：先理解業務領域與角色語言，再談系統功能。否則工程師只能依照字面開發，最後做出來的東西可能很完整，卻不貼近現場。</p>
+<h3>2. 只列功能清單，沒有定義狀態與流程</h3>
+<p>「新增、修改、刪除、查詢」不是完整需求。真正會讓系統變複雜的，是流程狀態與狀態轉換。</p>
+<p>例如報價單不是只有新增報價，它可能經過：</p>
+<ul>
+<li>草稿</li>
+<li>送審</li>
+<li>主管退回</li>
+<li>已核准</li>
+<li>已送客戶</li>
+<li>客戶接受</li>
+<li>客戶拒絕</li>
+<li>已轉訂單</li>
+<li>已作廢</li>
+</ul>
+<p>每個狀態能不能修改？誰可以退回？什麼狀態才能轉訂單？作廢後是否保留紀錄？這些如果沒有寫清楚，開發過程一定會反覆追加。</p>
+<p>需求規格不是只寫功能，而是要定義<strong>狀態機（State Machine）</strong>，讓系統知道每一步能怎麼走、不能怎麼走。</p>
+<h3>3. 只描述畫面，沒有定義資料結構與邊界條件</h3>
+<p>有些企業會用截圖或手繪畫面說明需求，這很有幫助，但還不夠。畫面只是入口，真正支撐系統的是資料。</p>
+<p>如果沒有定義欄位、格式、必填規則、資料來源、權限與例外情況，系統很容易在上線後出問題。</p>
+<p>常見遺漏包括：</p>
+<ul>
+<li>客戶名稱是否可重複？</li>
+<li>金額是否含稅？</li>
+<li>日期是否允許回填？</li>
+<li>附件大小與格式限制是什麼？</li>
+<li>使用者刪除資料後是否要留下紀錄？</li>
+<li>權限不足時要顯示什麼訊息？</li>
+</ul>
+<p>這些看似細節，卻是系統穩定度與資安風險的關鍵。</p>
+<h2>挑選標準：需求規格應包含的 4 個核心區塊</h2>
+<h3>區塊一：業務情境與核心角色（User Roles）</h3>
+<p>需求文件第一段不要急著寫功能，應先說清楚業務背景與角色。</p>
+<p>建議包含：</p>
+<ul>
+<li>系統要解決的核心問題</li>
+<li>目前流程的痛點與成本</li>
+<li>主要使用者角色</li>
+<li>每個角色的權限與責任</li>
+<li>成功後要改善的指標</li>
+</ul>
+<p>例如角色可以拆成：業務、主管、財務、客服、系統管理員、外部客戶。每個角色看到的資料、能做的操作、承擔的責任都不同。</p>
+<p>UBPL 的價值在這裡很重要：從使用者與業務流程出發，理解人在真實情境中如何完成任務。好的需求不是逼人配合系統，而是讓系統支援真正的工作節奏。</p>
+<h3>區塊二：功能範疇與狀態機（Feature Scope &amp; State Machine）</h3>
+<p>第二個區塊要定義系統要做什麼，也要定義這次不做什麼。範疇不清，是客製化開發最容易失控的原因。</p>
+<p>建議寫清楚：</p>
+<ul>
+<li>本期包含哪些功能</li>
+<li>本期不包含哪些功能</li>
+<li>每個功能的前置條件</li>
+<li>每個流程的狀態</li>
+<li>每個狀態允許的操作</li>
+<li>狀態轉換由誰觸發</li>
+</ul>
+<p>例如「請款流程」可以定義為：草稿、送審、退回、核准、付款中、已付款、作廢。每個狀態都要標明誰能操作、是否通知、是否可修改、是否要保留紀錄。</p>
+<p>這能大幅降低「我以為有」與「你沒有說」的專案摩擦。</p>
+<h3>區塊三：資料結構與欄位定義（Data Schema）</h3>
+<p>第三個區塊要處理資料。UDM（Unified Data Model，統一資料模型）的重點，是讓企業先建立共同資料語言。</p>
+<p>建議每個資料表或核心物件都定義：</p>
+<ul>
+<li>欄位名稱</li>
+<li>欄位說明</li>
+<li>資料型態</li>
+<li>是否必填</li>
+<li>預設值</li>
+<li>驗證規則</li>
+<li>權限限制</li>
+<li>與其他資料的關聯</li>
+</ul>
+<p>例如「客戶」不是只有名稱與電話，還可能包含統編、產業別、客戶等級、負責業務、付款條件、合約狀態、資料建立者與最後更新時間。</p>
+<p>資料定義越清楚，報價越準、開發越穩、上線後報表越可信。</p>
+<h3>區塊四：邊界條件與資安防線（Edge Cases &amp; Security）</h3>
+<p>最後一個區塊最容易被忽略，卻最能看出需求規格是否成熟。</p>
+<p>請務必寫出：</p>
+<ul>
+<li>權限不足時怎麼處理？</li>
+<li>重複送出表單怎麼辦？</li>
+<li>網路中斷是否保留草稿？</li>
+<li>資料刪除是硬刪除還是軟刪除？</li>
+<li>誰能匯出資料？</li>
+<li>哪些操作要留下 audit log？</li>
+<li>敏感資料是否要遮罩或加密？</li>
+<li>API 串接失敗時如何重試或告警？</li>
+</ul>
+<p>客製化系統不是能跑就好，而是要能承受真實世界的例外情況。尤其涉及客戶資料、財務資料、員工資料時，資安防線必須在需求階段就納入，而不是上線後補救。</p>
+<h2>評估步驟：如何判斷顧問是否能幫你寫好需求？</h2>
+<p>如果你正在尋找 IT 顧問推薦，第一面談不要只問對方會不會開發，而要觀察他如何拆解需求。</p>
+<h3>1. 他是否先問業務流程，而不是先談技術架構？</h3>
+<p>好的顧問會先問：</p>
+<ul>
+<li>目前流程怎麼跑？</li>
+<li>哪些角色參與？</li>
+<li>哪些步驟最容易出錯？</li>
+<li>哪些資料需要跨部門共享？</li>
+<li>哪些決策需要主管審核？</li>
+<li>專案成功後要用什麼指標衡量？</li>
+</ul>
+<p>如果顧問一開始只談框架、語言、雲端或資料庫，卻沒有理解你的營運現場，需求很容易寫偏。</p>
+<h3>2. 他是否能把模糊期待轉成可驗收條件？</h3>
+<p>成熟的 IT 諮詢服務，會把「希望更方便」、「希望自動化」、「希望主管看得到」轉成具體規格。</p>
+<p>例如：</p>
+<ul>
+<li>使用者可依客戶名稱、統編、負責業務查詢資料</li>
+<li>報價單送審後不可修改金額，除非主管退回</li>
+<li>超過 3 天未處理的案件自動提醒負責人</li>
+<li>匯出報表需記錄操作人、時間與查詢條件</li>
+</ul>
+<p>可驗收，才可管理；可管理，才不會變成無止境追加。</p>
+<h3>3. 他是否重視範疇控管與變更流程？</h3>
+<p>需求一定會變，但變更不能失控。好的顧問會協助企業建立需求優先順序、版本規劃與變更評估機制，避免每個人的臨時想法都變成開發成本。</p>
+<h2>結語：需求寫清楚，是最便宜也最關鍵的風險控管</h2>
+<p>客製化系統開發不是從寫程式開始，而是從寫清楚需求開始。需求規格寫得好，報價才準、時程才穩、驗收才有依據，企業也更能掌握主導權。</p>
+<p>如果你準備開發客製化系統，請先不要急著找廠商估價。先把業務情境、角色權限、功能範疇、狀態機、資料結構、邊界條件與資安規則整理清楚。</p>
+<p>樂呈科技顧問團隊可協助企業進行需求訪談、DDD 業務領域拆解、UBPL 使用者流程分析、UDM 資料模型設計、需求規格文件撰寫與開發廠商溝通。從第一次初步諮詢開始，我們陪你把模糊想法整理成可開發、可驗收、可落地的系統藍圖。</p>
+<h2>FAQ：客製化系統開發前最常問的 3 個問題</h2>
+<h3>1. 需求規格一定要寫到很細才能估價嗎？</h3>
+<p>不一定一開始就要到程式規格等級，但至少要清楚定義角色、流程、功能範疇、資料欄位、權限與主要例外情況。否則估價很容易失準。</p>
+<h3>2. 已經有畫面草圖，還需要需求文件嗎？</h3>
+<p>需要。畫面草圖只能說明操作介面，無法完整表達資料規則、狀態轉換、權限控管、例外處理與驗收條件。兩者應搭配使用。</p>
+<h3>3. 需求變更是不是代表前期規劃失敗？</h3>
+<p>不是。需求變更很正常，重點是要有變更流程。每次變更都應評估對成本、時程、資料結構與使用者流程的影響，再決定是否納入本期開發。</p>
+
+</div>
+
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#16234d] p-8 md:p-10 text-center mt-14">
+<div aria-hidden="true" class="pointer-events-none absolute -bottom-16 -right-10 h-56 w-56 rounded-full bg-accent/30 blur-3xl"></div>
+<div class="relative flex flex-col items-center gap-4">
+<h2 class="font-display text-white text-2xl md:text-3xl font-black tracking-tight">想深入聊聊你的數位轉型？</h2>
+<p class="text-white/80 max-w-md">我們的顧問團隊樂意提供免費的初步諮詢。</p>
+<a href="/contact.html" class="inline-flex items-center gap-2 rounded-lg px-7 py-3.5 bg-accent hover:bg-accent-dark text-white font-bold transition-all shadow-lg shadow-accent/30 hover:-translate-y-0.5">
+<span class="material-symbols-outlined">send</span> 立即預約免費諮詢
+</a>
+</div>
+</div>
+</article>
+
+</div>
+</main>
+
+<footer class="border-t py-12 border-white/10 bg-base/60 backdrop-blur-xl">
+<div class="flex flex-col gap-10 px-4 sm:px-10 max-w-7xl mx-auto w-full">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1 flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="font-black text-lg text-white">樂呈科技</span>
+<span class="text-xs text-ink-soft">UTrend Tech</span>
+</div>
+<p class="text-sm leading-relaxed text-ink-soft">最懂產業流程的 IT 顧問團隊，您最值得信賴的數位轉型夥伴。</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-white">服務</h4>
+<ul class="flex flex-col gap-2.5">
+<li><a href="/services.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">ERP／CRM 顧問</a></li>
+<li><a href="/services.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">AI 解決方案</a></li>
+<li><a href="/services.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">客製化開發</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-white">公司</h4>
+<ul class="flex flex-col gap-2.5">
+<li><a href="/about.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">關於我們</a></li>
+<li><a href="/cases.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">案例與成果</a></li>
+<li><a href="/insights.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">最新觀點</a></li>
+<li><a href="/contact.html" class="text-sm transition-colors text-ink-soft hover:text-primary-glow">聯絡我們</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-white">聯繫我們</h4>
+<ul class="flex flex-col gap-2.5">
+<li><a href="mailto:salesteam@getutrend.com" class="flex items-center gap-2 text-sm transition-colors text-ink-soft hover:text-primary-glow"><span class="material-symbols-outlined text-base">mail</span>salesteam@getutrend.com</a></li>
+<li><a href="/contact.html" class="flex items-center gap-2 text-sm transition-colors text-ink-soft hover:text-primary-glow"><span class="material-symbols-outlined text-base">forum</span>線上諮詢表單</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t pt-6 border-white/10">
+<p class="text-sm text-center text-ink-soft">&copy; 2026 樂呈科技 UTrend Tech Co., Ltd. 版權所有。</p>
+</div>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
