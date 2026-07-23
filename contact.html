@@ -98,7 +98,7 @@
   gtag('js', new Date());
   gtag('config', 'G-XL95MJHYGS');
 </script>
-  <script type="module" crossorigin src="/assets/contact-BYJx5np8.js"></script>
+  <script type="module" crossorigin src="/assets/contact-D0ECwbyE.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/shared-Bn1rQewm.js">
   <link rel="stylesheet" crossorigin href="/assets/shared-CN2MrhKg.css">
 </head>
@@ -183,6 +183,12 @@ Contact
 <div v-if="status === 'error'" class="flex items-center gap-2 rounded-lg bg-red-500/10 border border-red-500/30 text-red-700 dark:text-red-400 px-4 py-3 text-sm">
 <span class="material-symbols-outlined">error</span>
 <span>[[ errorMsg ]]</span>
+</div>
+
+<!-- 蜜罐欄位：對真人隱藏，機器人常會自動填入 → 後端據此靜默略過。勿移除。 -->
+<div class="hidden" aria-hidden="true">
+<label for="website">請勿填寫此欄位</label>
+<input id="website" v-model="form.website" type="text" tabindex="-1" autocomplete="off"/>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
